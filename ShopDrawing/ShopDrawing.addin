@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+	<AddIn Type="Application">
+		<Name>ShopDrawing</Name>
+		<Assembly>ShopDrawing/ShopDrawing.dll</Assembly> // the path at revit directory
+		<FullClassName>ShopDrawing.App</FullClassName>
+		<ClientId>
+			A9E748C2-0BE3-4705-BD31-F2DD9059FE5F
+		</ClientId>
+		<VendorId>DummyVendorId</VendorId>
+		<VendorDescription>DummyDescription</VendorDescription>
+	</AddIn>
+
+</RevitAddIns>
