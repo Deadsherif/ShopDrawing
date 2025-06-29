@@ -6,7 +6,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ShopDrawing.MVVM.ViewModel
+namespace ShopDrawing.Presentation.ViewModels
 {
     public class ViewModelBase : INotifyPropertyChanged
     {

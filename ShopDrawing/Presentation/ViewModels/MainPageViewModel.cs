@@ -1,5 +1,5 @@
 ﻿using Autodesk.Revit.UI;
-using ShopDrawing.MVVM.View;
+using ShopDrawing.View;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -10,7 +10,7 @@ using Autodesk.Revit.DB;
 
 
 
-namespace ShopDrawing.MVVM.ViewModel
+namespace ShopDrawing.Presentation.ViewModels
 {
     public class MainPageViewModel : ViewModelBase
     {

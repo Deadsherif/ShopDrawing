@@ -1,11 +1,12 @@
 ﻿using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
-using ShopDrawing.MVVM.ViewModel;
+using ShopDrawing.Presentation.ViewModels;
+using ShopDrawing.Presentation.Views;
 using System;
 
-namespace ShopDrawing.EVHandler
+namespace ShopDrawing.Events
 {
-    internal class ShopDrawingExternalEventHandler : IExternalEventHandler
+    internal class GenerateDrawingHandler : IExternalEventHandler
     {
         public MainPageViewModel MainViewModel { get; set; }
 
@@ -20,7 +21,6 @@ namespace ShopDrawing.EVHandler
                 MainViewModel.SetStatus(true);
                 Transaction tr = new Transaction(doc, "Create Component");
                 tr.Start();
-
 
                 tr.Commit();
             }

@@ -1,10 +1,11 @@
 ﻿using Autodesk.Revit.Attributes;
 using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
-using ShopDrawing.EVHandler;
+using ShopDrawing.Events;
 
-using ShopDrawing.MVVM.View;
-using ShopDrawing.MVVM.ViewModel;
+
+using ShopDrawing.Presentation.Views;
+using ShopDrawing.Presentation.ViewModels;
 
 using System;
 using System.Collections.Generic;
@@ -22,7 +23,7 @@ namespace ShopDrawing
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
             //export stl 
-            ShopDrawingExternalEventHandler ShopDrawingExternalEventHandler = new ShopDrawingExternalEventHandler();
+            GenerateDrawingHandler ShopDrawingExternalEventHandler = new GenerateDrawingHandler();
             var ev = ExternalEvent.Create(ShopDrawingExternalEventHandler);
 
            

@@ -6,21 +6,20 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Data;
 
-namespace ShopDrawing.MVVM.Converters
+namespace ShopDrawing.Presentation.Converters
 {
-    public class EnumToStringConverter : IValueConverter
+    public class CountToBoolConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-
-            return value.ToString();
+            if (value is int count)
+                return count > 0;
+            return false;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
-
-            return value; 
-
+            throw new NotSupportedException();
         }
     }
 }

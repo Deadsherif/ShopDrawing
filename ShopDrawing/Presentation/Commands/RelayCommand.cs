@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace ShopDrawing
+namespace ShopDrawing.Presentation.Commands
 {
     internal class RelayCommand : ICommand
     {

@@ -15,62 +15,38 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-using ShopDrawing.MVVM.ViewModel;
+using ShopDrawing.Presentation.ViewModels;
 
 using System.Threading;
 using System.Reflection;
 using System.IO;
 using Path = System.IO.Path;
 
-namespace ShopDrawing.MVVM.View
+namespace ShopDrawing.Presentation.Views
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainPage : Page
     {
-        public MainPageViewModel mainPageViewModel { get; set; }
-        public static MainWindow instance { get; set; }
-        public bool IsClosed { get; private set; }
-        public MainWindow(MainPageViewModel viewModel)
-        {
-            AppDomain.CurrentDomain.AssemblyResolve += new ResolveEventHandler(AssemblyResolve);
+        public MainPageViewModel ViewModel { get; set; }
+        private MainWindow _mainWindow;
 
+
+        public MainPage(MainPageViewModel viewModel,MainWindow mainWindow)
+        {
             //LocalizeDictionary.Instance.Culture.ClearCachedData();
             //LocalizeDictionary.Instance.Culture = new System.Globalization.CultureInfo("it"); 
             InitializeComponent();
-            mainPageViewModel = viewModel;
-            DataContext = mainPageViewModel;
-            //Loaded += MainWindow_Loaded;
-            // Navigate to the LoginPage on application startup
-            NavigateToMainPage();
-
+            DataContext = viewModel;
+            _mainWindow = mainWindow;
         }
 
-        private void MainWindow_Loaded(object sender, RoutedEventArgs e)
-        {
-            Topmost = true;
-        }
+       
 
         private void CloseBtn_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
-            IsClosed = true;
-        }
-        public static MainWindow CreateInstance(MainPageViewModel viewModel)
-        {
-            if (instance == null || instance.IsClosed)
-                instance = new MainWindow(viewModel);
-            else
-                instance.Activate();
-
-            return instance;
-        }
-        protected override void OnClosed(EventArgs e) => IsClosed = true;
-        // This method can be used for navigating from LoginPage to MainPage
-        public void NavigateToMainPage()
-        {
-            MainFrame.Navigate(new MainPage(mainPageViewModel,this));
+            _mainWindow.Close();
         }
 
         private Assembly AssemblyResolve(object sender, ResolveEventArgs args)
@@ -95,5 +71,7 @@ namespace ShopDrawing.MVVM.View
             }
             return null;
         }
+
+
     }
 }
