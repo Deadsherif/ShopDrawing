@@ -1,26 +1,13 @@
-﻿using Autodesk.Revit.DB;
-using Autodesk.Revit.DB.Events;
+﻿
+
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
-using ShopDrawing.Presentation.ViewModels;
-
-using System.Threading;
 using System.Reflection;
 using System.IO;
 using Path = System.IO.Path;
+using ShopDrawing.Presentation.ViewModels;
 
 namespace ShopDrawing.Presentation.Views
 {
@@ -43,7 +30,7 @@ namespace ShopDrawing.Presentation.Views
             DataContext = mainPageViewModel;
             //Loaded += MainWindow_Loaded;
             // Navigate to the LoginPage on application startup
-            NavigateToMainPage();
+            //NavigateToMainPage();
 
         }
 
@@ -68,10 +55,10 @@ namespace ShopDrawing.Presentation.Views
         }
         protected override void OnClosed(EventArgs e) => IsClosed = true;
         // This method can be used for navigating from LoginPage to MainPage
-        public void NavigateToMainPage()
-        {
-            MainFrame.Navigate(new MainPage(mainPageViewModel,this));
-        }
+        //public void NavigateToMainPage()
+        //{
+            //MainFrame.Navigate(new MainPage(mainPageViewModel, this));
+        //}
 
         private Assembly AssemblyResolve(object sender, ResolveEventArgs args)
         {

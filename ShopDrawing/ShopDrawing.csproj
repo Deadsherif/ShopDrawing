@@ -62,6 +62,9 @@
       <HintPath>..\..\..\..\..\..\Program Files\Autodesk\Revit 2023\RevitAPIUI.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="RevitAutomationToolkit">
+      <HintPath>..\..\RevitAutomationToolKit\RevitAutomationToolkit\bin\Debug\RevitAutomationToolkit.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.4.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Buffers.4.6.0\lib\net462\System.Buffers.dll</HintPath>
@@ -98,17 +101,28 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App.cs" />
-    <Compile Include="Command.cs" />
-    <Compile Include="Infrastructure\Loggert.cs" />
+    <Compile Include="Application\App.cs" />
+    <Compile Include="Application\Tab\PanelBuilder.cs" />
+    <Compile Include="Application\Tab\RibbonBuilder.cs" />
+    <Compile Include="Domain\Models\Grids.cs" />
+    <Compile Include="Application\Commands\GridsCommand.cs" />
+    <Compile Include="Infrastructure\Logger.cs" />
     <Compile Include="Presentation\Commands\RelayCommand.cs" />
     <Compile Include="Events\GenerateDrawingHandler.cs" />
     <Compile Include="Presentation\Converters\BoolToVisibility.cs" />
     <Compile Include="Presentation\Converters\CountToBoolConverter .cs" />
     <Compile Include="Presentation\Converters\EnumToStringConverter.cs" />
     <Compile Include="Presentation\FileName.cs" />
+    <Compile Include="Presentation\ViewModels\DashboardViewModel.cs" />
+    <Compile Include="Presentation\ViewModels\GridsViewModel.cs" />
     <Compile Include="Presentation\ViewModels\MainPageViewModel.cs" />
     <Compile Include="Presentation\ViewModels\ViewModelBase.cs" />
+    <Compile Include="Presentation\Views\BatchProcessingView.xaml.cs">
+      <DependentUpon>BatchProcessingView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Views\Grids.xaml.cs">
+      <DependentUpon>Grids.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Presentation\Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -149,6 +163,14 @@
     <None Include="Resources\favicon1-32x32.png" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Presentation\Views\BatchProcessingView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\Views\Grids.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Presentation\Views\MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -159,10 +181,8 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Application\Extensions\" />
-    <Folder Include="Application\Services\" />
+    <Folder Include="Application\Queries\" />
     <Folder Include="Domain\Enums\" />
-    <Folder Include="Domain\Models\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

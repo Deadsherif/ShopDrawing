@@ -4,6 +4,7 @@
     xmlns:converters="clr-namespace:ShopDrawing.Presentation.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:views="clr-namespace:ShopDrawing.Presentation.Views"
     Width="550"
     Height="550"
     Padding="5"
@@ -11,7 +12,25 @@
     ResizeMode="NoResize"
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
-    <Grid>
-        <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" />
-    </Grid>
+    <Window.Resources>
+        <ResourceDictionary>
+            <converters:CountToBoolConverter x:Key="CountToBoolConverter"/>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/SkinDefault.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Theme.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+
+    </Window.Resources>
+    <DockPanel>
+        <TabControl SelectedIndex="{Binding SelectedTabIndex}">
+            <TabItem Header="Dashboard">
+                <!--<views:DashboardView DataContext="{Binding DashboardVM}"/>-->
+            </TabItem>
+            <TabItem Header="Batch Processing">
+                <views:BatchProcessingView DataContext="{Binding BatchProcessingVM}"/>
+            </TabItem>
+        </TabControl>
+    </DockPanel>
+
 </Window>

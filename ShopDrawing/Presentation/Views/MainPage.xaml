@@ -31,7 +31,7 @@
 
         <!-- Header and Logo -->
         <StackPanel Grid.Row="0" Margin="12" VerticalAlignment="Center">
-            <Image HorizontalAlignment="Center" Width="220" Height="90" Source="/ShopDrawing;component/Resources/mimar.png" />
+            <Image HorizontalAlignment="Center" Width="220" Height="90"/>
         </StackPanel>
 
         <TextBlock  Grid.Row="0">Create Walls , Floor and Ceilings For Room:</TextBlock>
@@ -121,10 +121,7 @@
                     Command="{Binding AddRoomCommand}"
                     Style="{StaticResource ButtonPrimary}" 
                     Margin="5"/>
-                <Button Content="✅ Create Style"
-                    Command="{Binding ShopDrawingCommand}"
-                    Style="{StaticResource ButtonSuccess}" 
-                    Margin="5"/>
+            
                 <Button Content="❌ Close"
                     Click="CloseBtn_Click"
                     Style="{StaticResource ButtonWarning}" 

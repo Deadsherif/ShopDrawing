@@ -1,12 +1,11 @@
 ﻿using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
 using ShopDrawing.Presentation.ViewModels;
-using ShopDrawing.Presentation.Views;
 using System;
 
 namespace ShopDrawing.Events
 {
-    internal class GenerateDrawingHandler : IExternalEventHandler
+    internal class ShopDrawingExternalEventHandler : IExternalEventHandler
     {
         public MainPageViewModel MainViewModel { get; set; }
 
